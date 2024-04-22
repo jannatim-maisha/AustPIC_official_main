@@ -1,0 +1,120 @@
+﻿@model AustPIC.Models.CssVariableModel
+
+@{
+    ViewData["Title"] = "EditCss";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main class="p-5 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <h1>EditCss</h1>
+
+    <h4>CSSModel</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="EditCss">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @Html.HiddenFor(Model => Model.VarId)
+                <div class="form-group">
+                    <label asp-for="VarName" class="control-label"></label>
+                    <input asp-for="VarName" class="form-control" readonly="readonly" />
+                    <span asp-validation-for="VarName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="VarValue" class="control-label"></label>
+                    <div id="varValueContainer">
+                        <!-- The container div where input controls will be dynamically added -->
+                    </div>
+                    <span asp-validation-for="VarValue" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="GetAllCss">Back to List</a>
+    </div>
+</main>
+
+<!-- Initialize Spectrum color picker for the specified input field -->
+<script>
+    $(document).ready(function () {
+        // Get the VarName value
+        var varName = $("#VarName").val();
+
+        // Initialize Spectrum color picker based on VarName
+        if (varName.includes('color-rgb')) {
+            // If VarName contains 'color-rgb', use RGB color picker
+            addRgbColorPicker();
+        } else if (varName.includes('color')) {
+            // If VarName contains 'color', use HEX color picker
+            addHexColorPicker();
+        } else if (varName.includes('img')) {
+            // If VarName contains 'img', use file input for image
+            addFileInput();
+        }
+
+        // Function to add RGB Spectrum color picker
+        function addRgbColorPicker() {
+            var rgbColorPickerInput = $('<input>', {
+                type: 'text',
+                class: 'form-control color-picker',
+                name: 'VarValue',
+                value: $("#VarValue").val(),
+                'data-format': 'rgb',
+                // Set showInput: false to hide the 'rgb()' part in the input field
+                showInput: false
+            });
+            $("#varValueContainer").append(rgbColorPickerInput);
+            rgbColorPickerInput.spectrum({
+                preferredFormat: 'rgb',
+                showInput: true
+            });
+        }
+
+        // Function to add HEX Spectrum color picker
+        function addHexColorPicker() {
+            var hexColorPickerInput = $('<input>', {
+                type: 'text',
+                class: 'form-control color-picker',
+                name: 'VarValue',
+                value: $("#VarValue").val(),
+                'data-format': 'hex'
+            });
+            $("#varValueContainer").append(hexColorPickerInput);
+            hexColorPickerInput.spectrum({
+                preferredFormat: 'hex'
+            });
+        }
+
+        // Function to add file input for image
+        function addFileInput() {
+            var fileInput = $('<input>', {
+                type: 'file',
+                class: 'form-control',
+                name: 'VarValue'
+            });
+            $("#varValueContainer").append(fileInput);
+        }
+
+        // Intercept the form submission
+        $("form").submit(function () {
+            // Get the VarName value again
+            var varName = $("#VarName").val();
+
+            // Check if VarName contains 'color-rgb'
+            if (varName.includes('color-rgb')) {
+                // If VarName contains 'color-rgb', remove the 'rgb()' part before submission
+                var rgbColorPickerInput = $(".color-picker[data-format='rgb']");
+                if (rgbColorPickerInput.length) {
+                    var rgbValue = rgbColorPickerInput.spectrum("get").toRgbString();
+                    // Update the input field value without 'rgb()' part
+                    rgbColorPickerInput.val(rgbValue.replace(/^rgb\(|\)$/g, ''));
+                }
+            }
+        });
+    });
+</script>

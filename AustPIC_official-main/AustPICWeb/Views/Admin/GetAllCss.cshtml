@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AustPIC.Models.CssVariableModel>
+
+@{
+    ViewData["Title"] = "GetAllCss";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main class="p-5 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <h1>Css List</h1>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.VarId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VarName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VarValue)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VarId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VarName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VarValue)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditCss", new { id=item.VarId }, new { @class = "btn btn-success" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>

@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AustPICModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogTitle" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="BlogDate" Type="datetime" Nullable="false" />
+          <Property Name="BlogAuthor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BlogCatergory" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BlogShort" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="BlogBody" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BlogImg" Type="varchar" MaxLength="100" />
+          <Property Name="BlogView" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Committee">
+          <Key>
+            <PropertyRef Name="CommitteeId" />
+          </Key>
+          <Property Name="CommitteeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommitteeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CommitteePosition" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CommitteeImg" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CommitteeDetails" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CommitteeYear" Type="int" Nullable="false" />
+          <Property Name="CommitteeSemester" Type="int" Nullable="false" />
+          <Property Name="CommitteeFacebook" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CommitteeEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CommitteeStatus" Type="int" Nullable="false" />
+          <Property Name="CommitteeIteration" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactMessage" Type="text" Nullable="false" />
+          <Property Name="ContactTime" Type="datetime" Nullable="false" />
+          <Property Name="ContactReplied" Type="int" Nullable="false" />
+          <Property Name="ContactSubject" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contest">
+          <Key>
+            <PropertyRef Name="ContestId" />
+          </Key>
+          <Property Name="ContestId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContestTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContestDesc" Type="text" Nullable="false" />
+          <Property Name="ContestImg" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContestStart" Type="datetime" Nullable="false" />
+          <Property Name="ContestEnd" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CssVariables">
+          <Key>
+            <PropertyRef Name="VarName" />
+          </Key>
+          <Property Name="VarName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VarValue" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CssVariables1">
+          <Key>
+            <PropertyRef Name="VarId" />
+          </Key>
+          <Property Name="VarId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VarName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VarValue" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventTitle" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="EventDesc" Type="text" Nullable="false" />
+          <Property Name="EventImg" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EventStart" Type="datetime" Nullable="false" />
+          <Property Name="EventEnd" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="ImgId" />
+          </Key>
+          <Property Name="ImgId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImgTitle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImgDesc" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImgUrl" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MemberAustId" Type="int" Nullable="false" />
+          <Property Name="MemberDept" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MemberYear" Type="int" Nullable="false" />
+          <Property Name="MemberSemester" Type="int" Nullable="false" />
+          <Property Name="MemberEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MemberMobile" Type="int" Nullable="false" />
+          <Property Name="MemberBirth" Type="date" Nullable="false" />
+          <Property Name="MemberBloodgrp" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="MemberJoined" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AustPICModelStoreContainer">
+          <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Committee" EntityType="Self.Committee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contest" EntityType="Self.Contest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CssVariables" EntityType="Self.CssVariables" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CssVariables1" EntityType="Self.CssVariables1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AustPICModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="AustPICEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Gallery" EntityType="AustPICModel.Gallery" />
+          <EntitySet Name="Member" EntityType="AustPICModel.Member" />
+          <EntitySet Name="Contact" EntityType="AustPICModel.Contact" />
+          <EntitySet Name="Committee" EntityType="AustPICModel.Committee" />
+          <EntitySet Name="Blog" EntityType="AustPICModel.Blog" />
+          <EntitySet Name="Contest" EntityType="AustPICModel.Contest" />
+          <EntitySet Name="Event" EntityType="AustPICModel.Event" />
+          <EntitySet Name="CssVariables" EntityType="AustPICModel.CssVariables" />
+          <EntitySet Name="CssVariables1" EntityType="AustPICModel.CssVariables1" />
+        </EntityContainer>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="ImgId" />
+          </Key>
+          <Property Name="ImgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImgTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImgDesc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImgUrl" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberId" />
+          </Key>
+          <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberAustId" Type="Int32" Nullable="false" />
+          <Property Name="MemberDept" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberYear" Type="Int32" Nullable="false" />
+          <Property Name="MemberSemester" Type="Int32" Nullable="false" />
+          <Property Name="MemberEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberMobile" Type="Int32" Nullable="false" />
+          <Property Name="MemberBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MemberBloodgrp" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="MemberJoined" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactMessage" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ContactTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContactReplied" Type="Int32" Nullable="false" />
+          <Property Name="ContactSubject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Committee">
+          <Key>
+            <PropertyRef Name="CommitteeId" />
+          </Key>
+          <Property Name="CommitteeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommitteeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CommitteePosition" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CommitteeImg" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CommitteeDetails" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CommitteeYear" Type="Int32" Nullable="false" />
+          <Property Name="CommitteeSemester" Type="Int32" Nullable="false" />
+          <Property Name="CommitteeFacebook" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CommitteeEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CommitteeStatus" Type="Int32" Nullable="false" />
+          <Property Name="CommitteeIteration" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Blog">
+          <Key>
+            <PropertyRef Name="BlogId" />
+          </Key>
+          <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogTitle" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BlogDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BlogAuthor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BlogCatergory" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BlogShort" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BlogBody" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BlogImg" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BlogView" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contest">
+          <Key>
+            <PropertyRef Name="ContestId" />
+          </Key>
+          <Property Name="ContestId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContestTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ContestDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ContestImg" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContestStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContestEnd" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EventDesc" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EventImg" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EventStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EventEnd" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="CssVariables">
+          <Key>
+            <PropertyRef Name="VarName" />
+          </Key>
+          <Property Name="VarName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VarValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CssVariables1">
+          <Key>
+            <PropertyRef Name="VarId" />
+          </Key>
+          <Property Name="VarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VarName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VarValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AustPICModelStoreContainer" CdmEntityContainer="AustPICEntities">
+          <EntitySetMapping Name="Gallery">
+            <EntityTypeMapping TypeName="AustPICModel.Gallery">
+              <MappingFragment StoreEntitySet="Gallery">
+                <ScalarProperty Name="ImgUrl" ColumnName="ImgUrl" />
+                <ScalarProperty Name="ImgDesc" ColumnName="ImgDesc" />
+                <ScalarProperty Name="ImgTitle" ColumnName="ImgTitle" />
+                <ScalarProperty Name="ImgId" ColumnName="ImgId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Member">
+            <EntityTypeMapping TypeName="AustPICModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="MemberJoined" ColumnName="MemberJoined" />
+                <ScalarProperty Name="MemberBloodgrp" ColumnName="MemberBloodgrp" />
+                <ScalarProperty Name="MemberBirth" ColumnName="MemberBirth" />
+                <ScalarProperty Name="MemberMobile" ColumnName="MemberMobile" />
+                <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+                <ScalarProperty Name="MemberSemester" ColumnName="MemberSemester" />
+                <ScalarProperty Name="MemberYear" ColumnName="MemberYear" />
+                <ScalarProperty Name="MemberDept" ColumnName="MemberDept" />
+                <ScalarProperty Name="MemberAustId" ColumnName="MemberAustId" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact">
+            <EntityTypeMapping TypeName="AustPICModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="ContactSubject" ColumnName="ContactSubject" />
+                <ScalarProperty Name="ContactReplied" ColumnName="ContactReplied" />
+                <ScalarProperty Name="ContactTime" ColumnName="ContactTime" />
+                <ScalarProperty Name="ContactMessage" ColumnName="ContactMessage" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Committee">
+            <EntityTypeMapping TypeName="AustPICModel.Committee">
+              <MappingFragment StoreEntitySet="Committee">
+                <ScalarProperty Name="CommitteeIteration" ColumnName="CommitteeIteration" />
+                <ScalarProperty Name="CommitteeStatus" ColumnName="CommitteeStatus" />
+                <ScalarProperty Name="CommitteeEmail" ColumnName="CommitteeEmail" />
+                <ScalarProperty Name="CommitteeFacebook" ColumnName="CommitteeFacebook" />
+                <ScalarProperty Name="CommitteeSemester" ColumnName="CommitteeSemester" />
+                <ScalarProperty Name="CommitteeYear" ColumnName="CommitteeYear" />
+                <ScalarProperty Name="CommitteeDetails" ColumnName="CommitteeDetails" />
+                <ScalarProperty Name="CommitteeImg" ColumnName="CommitteeImg" />
+                <ScalarProperty Name="CommitteePosition" ColumnName="CommitteePosition" />
+                <ScalarProperty Name="CommitteeName" ColumnName="CommitteeName" />
+                <ScalarProperty Name="CommitteeId" ColumnName="CommitteeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blog">
+            <EntityTypeMapping TypeName="AustPICModel.Blog">
+              <MappingFragment StoreEntitySet="Blog">
+                <ScalarProperty Name="BlogView" ColumnName="BlogView" />
+                <ScalarProperty Name="BlogImg" ColumnName="BlogImg" />
+                <ScalarProperty Name="BlogBody" ColumnName="BlogBody" />
+                <ScalarProperty Name="BlogShort" ColumnName="BlogShort" />
+                <ScalarProperty Name="BlogCatergory" ColumnName="BlogCatergory" />
+                <ScalarProperty Name="BlogAuthor" ColumnName="BlogAuthor" />
+                <ScalarProperty Name="BlogDate" ColumnName="BlogDate" />
+                <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contest">
+            <EntityTypeMapping TypeName="AustPICModel.Contest">
+              <MappingFragment StoreEntitySet="Contest">
+                <ScalarProperty Name="ContestEnd" ColumnName="ContestEnd" />
+                <ScalarProperty Name="ContestStart" ColumnName="ContestStart" />
+                <ScalarProperty Name="ContestImg" ColumnName="ContestImg" />
+                <ScalarProperty Name="ContestDesc" ColumnName="ContestDesc" />
+                <ScalarProperty Name="ContestTitle" ColumnName="ContestTitle" />
+                <ScalarProperty Name="ContestId" ColumnName="ContestId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="AustPICModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="EventEnd" ColumnName="EventEnd" />
+                <ScalarProperty Name="EventStart" ColumnName="EventStart" />
+                <ScalarProperty Name="EventImg" ColumnName="EventImg" />
+                <ScalarProperty Name="EventDesc" ColumnName="EventDesc" />
+                <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CssVariables">
+            <EntityTypeMapping TypeName="AustPICModel.CssVariables">
+              <MappingFragment StoreEntitySet="CssVariables">
+                <ScalarProperty Name="VarValue" ColumnName="VarValue" />
+                <ScalarProperty Name="VarName" ColumnName="VarName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CssVariables1">
+            <EntityTypeMapping TypeName="AustPICModel.CssVariables1">
+              <MappingFragment StoreEntitySet="CssVariables1">
+                <ScalarProperty Name="VarValue" ColumnName="VarValue" />
+                <ScalarProperty Name="VarName" ColumnName="VarName" />
+                <ScalarProperty Name="VarId" ColumnName="VarId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

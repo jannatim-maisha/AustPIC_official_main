@@ -1,0 +1,170 @@
+﻿@model IEnumerable<AustPIC.Models.AboutModel>
+@{
+    ViewData["Title"] = "About Us";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<section id="about" class="about mt-5">
+    @*    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+             <h1 class="display-3 fw-bold mb-3">About us</h1>
+             <p class="text-muted lead mb-0">Our programming club is a community of tech enthusiasts and programmers who are passionate about technology and programming. We are a diverse group of individuals with different levels of experience and expertise, and we welcome everyone who wants to join
+        </div>*@
+
+        <!-- Page Title-->
+      <header class="pt-10 pb-5">
+            <div class="container" data-aos="fade-up" data-aos-delay="800">
+                <div class="text-center col-12 col-sm-9 col-lg-7 col-xl-6 mx-auto position-relative z-index-20">
+                    <h1 class="display-3 fw-bold mb-3">About us</h1>
+                    <p class="text-muted lead mb-0">Our programming club is a community of tech enthusiasts and programmers who are passionate about technology and programming. We are a diverse group of individuals with different levels of experience and expertise, and we welcome everyone who wants to join us and contribute to our community..</p>
+                </div>
+            </div>
+        </header>
+        <!-- / Page Title-->
+
+        <!-- Page Content Goes Here -->
+        <div class="container position-relative z-index-20 py-7" data-aos="fade-up" data-aos-delay="200">
+
+            <!-- About Us Images-->
+            <div class="row g-3">
+                <!-- Images Left Side-->
+                <div class="col-12 col-lg-6 d-none d-lg-block">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            <picture>
+                             <!--      <img class="img-fluid rounded shadow-sm" src="~/img/portfolio/rsz3.jpg" alt="{{ config.defaultImgAlt }}">  --> 
+                              <img src="~/img/portfolio/rsz3.jpg" class="img-fluid" style="border-radius: 30px;"> 
+                            </picture>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="row gy-3">
+                                <div class="col-12">
+                                    <picture>
+                                      <!--   <img class="img-fluid rounded shadow-sm" src="~/img/portfolio/rsz_1_1.jpg" alt="{{ config.defaultImgAlt }}">  -->
+                                    <img src="~/img/portfolio/rsz_1_1.jpg" class="img-fluid" style="border-radius: 30px;">
+                                </picture>
+                                </div>
+                                <div class="col-12">
+                                    <picture>
+                                    <!--     <img class="img-fluid rounded shadow-sm" src="~/img/portfolio/rsz_1_4.jpg" alt="{{ config.defaultImgAlt }} ">  -->
+                                    <img src="~/img/portfolio/rsz_1_4.jpg" class="img-fluid" style="border-radius: 30px;">
+                                </picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Images Left Side-->
+                <!-- Images Right Side-->
+                <div class="col-12 col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6 d-none d-lg-block">
+                            <picture>
+                                 <!--  <img class="img-fluid rounded shadow-sm" src="~/img/portfolio/15_2.jpg" alt="{{ config.defaultImgAlt }}">  -->
+                            <img src="~/img/portfolio/15_2.jpg" class="img-fluid" style="border-radius: 30px;">
+                        </picture>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="row gy-3">
+                                <div class="col-12">
+                                    <picture>
+                                     <!--    <img class="img-fluid rounded shadow-sm" src="~/img/portfolio/rsz_1_7.jpg" alt="{{ config.defaultImgAlt }}">  -->
+                                    <img src="~/img/portfolio/rsz_1_7.jpg" class="img-fluid" style="border-radius: 30px;">
+                                </picture>
+                                </div>
+                                <div class="col-12">
+                                    <picture>
+                                       <!--  <img class="img-fluid rounded shadow-sm"  src="~/img/portfolio/rsz_formation.jpg"  alt="{{ config.defaultImgAlt }}"> -->
+                                    <img src="~/img/portfolio/rsz_formation.jpg" class="img-fluid" style="border-radius: 30px;">
+                                </picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Images Right Side-->
+            </div>
+            <!-- About Us Images-->
+
+            <!-- Club Summary-->
+
+            <div class="col-12 col-md-8 col-lg-6 mx-auto text-center py-4 border-bottom mb-5">
+            <p class="text-muted lead mb-0"></p>
+            @*      {{> widgets/stats }}*@
+            </div>
+            <!-- Club Summary-->
+
+            <!-- Club Story-->
+            <div class="py-6 row gx-8 align-items-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-12 col-lg-6">
+                    <p class="mb-3 small fw-bolder tracking-wider text-uppercase text-primary">How it started</p>
+                    <h2 class="display-5 fw-bold mb-6">Our story</h2>
+                    <p>In 2022, our university programming club was founded with the vision of creating an inclusive and supportive community for tech enthusiasts and programmers. We quickly gained traction, organizing regular meetups, workshops, and hackathons. As we grew, we expanded our programming activities, offered mentorship and access to learning resources, and created opportunities for students to showcase their work. Our programming club became a hub for students who wanted to improve their programming skills and gain valuable experience working on real-world projects.
+
+Over the years, our university programming club has grown into a thriving community of tech enthusiasts and programmers. We have made a significant impact on the lives of our members, providing them with the skills, knowledge, and experience they need to succeed in the tech industry.</p>
+                    <p>As we look to the future, we are excited about the opportunities that lie ahead for our programming club. We are committed to continuing to grow and support our community and to creating an environment where all students can thrive and pursue their passion for programming and technology.</p>
+                </div>
+                <div class="col-12 col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <picture>
+                        <img class="img-fluid rounded shadow-sm"
+                            src="~/img/portfolio/1 (2).jpg"
+                            alt="{{ config.defaultImgAlt }}">
+                    </picture>
+                </div>
+            </div>
+            <!-- /Club Story-->
+
+            <!-- Company Leadership-->
+        @*   <div class="py-8">
+                <h2 class="display-5 fw-bold mb-6 text-center">Our team</h2>
+                <div class="row g-6">
+                    {{#if (config team)}}
+                        {{#each team.entries}}
+                        <!-- Single Team-->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card rounded shadow-lg h-100">
+                                <div class="card-body d-flex align-items-center flex-column justify-content-center text-center p-5">
+                                    <picture class="avatar">
+                                        <img class="img-fluid rounded-circle"
+                                         <!--    src="{{ img }}" -->
+                                             src="~/img/portfolio/rsz_1_7.jpg"
+                                            alt="{{ config.defaultImgAlt }}">
+                                    </picture>
+                                    <p class="lead fw-bolder mb-0 mt-4">{{ name }}</p>
+                                    <p class="text-primary small fw-bold mb-4">{{ title }}</p>
+                                    <p class="text-muted">{{ bio }}</p>
+                                    <ul class="list-unstyled d-flex align-items-center justify-content-center mb-0">
+                                        <li class="mx-2"><a href="#" class="text-decoration-none"><i class="ri-linkedin-box-fill ri-2x"></i></a></li>
+                                        <li class="mx-2"><a href="#" class="text-decoration-none"><i class="ri-facebook-box-fill ri-2x"></i></a></li>
+                                        <li class="mx-2"><a href="#" class="text-decoration-none"><i class="ri-twitter-fill ri-2x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / Single Team-->
+                        {{/each}}
+                    {{/if}}
+                </div>
+            </div>*@
+
+            <!-- / Company Leadership-->
+
+            <!-- Careers-->
+            <div class="d-flex justify-content-center my-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="rounded-pill border px-5 py-3 text-muted d-flex align-items-center">
+                    Want to join our team? <a href="#" class="fw-bold d-flex align-items-center ms-2">We are hiring <i class="ri-arrow-right-line ms-1"></i></a>
+                </div>
+            </div>
+
+            <!-- / Careers-->
+        </div>
+
+        <!-- /Page Content -->
+
+</section>
+
+
+
+
+
+

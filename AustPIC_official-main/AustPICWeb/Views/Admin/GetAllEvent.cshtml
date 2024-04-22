@@ -1,0 +1,68 @@
+﻿@model IEnumerable<AustPIC.Models.EventModel>
+
+@{
+    ViewData["Title"] = "GetAllEvent";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main class="p-5 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <h1>Event List</h1>
+    <hr />
+    <p>
+        <a asp-action="AddEvent" class="btn btn-primary">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventDesc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventImg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventStart)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EventEnd)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventTitle)
+                    </td>
+                    <td colspan="1">
+                        @Html.DisplayFor(modelItem => item.EventDesc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventImg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventStart)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EventEnd)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditEvent", new { id=item.EventId }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Details", "EventDetails", new { id=item.EventId }, new { @class = "btn btn-secondary" })
+                        @Html.ActionLink("Delete", "DeleteEvent", new { id=item.EventId }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>

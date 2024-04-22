@@ -1,0 +1,87 @@
+﻿
+<footer id="footer">
+
+    <div class="footer-newsletter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h4>Join Our Newsletter</h4>
+                    @*<p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>*@
+                    <form method="post" data-ajax="true" data-ajax-complete="onCompleteNewsletter" data-ajax-success="onSuccessNewsletter" data-ajax-failure="onFailureNewsletter" data-ajax-loading="#spinner" data-ajax-url="@Url.Action("Index", "Newsletter")">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        <input type="submit" value="Subscribe">
+                    </form>
+                    <div class="d-flex justify-content-center my-4">
+                        <div class="spinner-border" role="status" id="spinner" style="display: none;">
+                        <span class="visually-hidden">Loading...</span>
+                   </div>
+                 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>AUSTPIC</h3>
+                    <p>
+                        141 & 142, Love Road <br>
+                        Tejgaon Industrial Area, Dhaka-1208<br>
+                        Bangladesh <br><br>
+                        <strong>Phone:</strong> (8802) 8870422<br>
+                        <strong>Email:</strong> info@aust.edu<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a asp-controller="" asp-action="Index">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a asp-controller="Contact" asp-action="Index">Contact us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a asp-controller="Gallery" asp-action="Index">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Participate In</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a asp-controller="Contest" asp-action="Index">Contests</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a asp-controller="Event" asp-action="Index">Events</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a asp-controller="Workshop" asp-action="Index">Workshops</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a asp-controller="Blog" asp-action="Index">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Social Networks</h4>
+                    @*<p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>*@
+                    <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            &copy; Copyright <strong><span>AUSTPIC</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Designed by <a href="">ASP</a>
+        </div>
+    </div>
+
+</footer>
+
+<div id="preloader"></div>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

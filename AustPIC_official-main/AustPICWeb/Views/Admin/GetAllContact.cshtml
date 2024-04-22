@@ -1,0 +1,69 @@
+﻿@*@model IEnumerable<AustPIC.Models.ContactModel>
+
+@{
+    ViewData["Title"] = "GetAllContact";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main class="p-5 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <h1>Inbox</h1>
+    <hr />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContactId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContactName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContactEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContactSubject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContactMessage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ContactTime)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactSubject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactMessage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactTime)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "ContactDetails", new { id=item.ContactId }, new { @class = "btn btn-secondary" })
+                        @if (item.ContactReplied == 0)
+                        {
+                            @Html.ActionLink("Reply", "ReplyMessage", new {  email=item.ContactEmail, id=item.ContactId  }, new { @class = "btn btn-primary" })
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>
+*@

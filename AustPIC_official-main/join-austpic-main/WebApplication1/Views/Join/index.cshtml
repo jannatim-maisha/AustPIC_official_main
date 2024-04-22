@@ -1,0 +1,253 @@
+﻿@{
+    ViewData["Title"] = "Registration";
+    Layout = "~/Views/Shared/_JoinLayout.cshtml";
+}
+@model ClubWebsite.Models.Common.MemberViewModel
+
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center">
+                <h1 data-aos="fade-up">Join the Rapidly Growing Club of AUST</h1>
+                <h2 data-aos="fade-up" data-aos-delay="400">Get Permanent Membership of AUST Programming and Informatics Club</h2><br />
+                <h6 data-aos="fade-up" data-aos-delay="600">Pay Only @ViewBag.Fee Taka Onetime</h6>
+                <div data-aos="fade-up" data-aos-delay="800">
+                    <div class="text-center text-lg-start">
+                        <a href="#values" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                            <span>Join Now?</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+                <img src="~/img/join/style-img.png" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+
+</section><!-- End Hero -->
+
+
+<!-- ======= Values Section ======= -->
+<section id="values" class="values">
+
+    <div class="container form-box-margin" data-aos="fade-up">
+
+        <header class="section-header">
+            <p>Fill up the form</p><br />
+            <h2>Pay using Bkash</h2>
+            @if (ViewBag.IsExistingReg)
+            {
+                <br />
+                <h2><a style="color:red;" href='@Url.Action("Index", "Payment")'>You have an existing Registration.Click to Pay!</a></h2>
+            }
+        </header>
+
+        <div class="container" data-aos="fade-up" data-aos-delay="200">
+            <div id="multi-step-form-container">
+                <!-- Form Steps / Progress Bar -->
+                <ul class="form-stepper form-stepper-horizontal text-center mx-auto pl-0">
+                    <!-- Step 1 -->
+                    <li class="form-stepper-active text-center form-stepper-list" step="1">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle">
+                                <span>1</span>
+                            </span>
+                            <div class="label">Account Details</div>
+                        </a>
+                    </li>
+                    <!-- Step 2 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="2">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span>2</span>
+                            </span>
+                            <div class="label text-muted">Academic Details</div>
+                        </a>
+                    </li>
+                    <!-- Step 3 -->
+                    <li class="form-stepper-unfinished text-center form-stepper-list" step="3">
+                        <a class="mx-2">
+                            <span class="form-stepper-circle text-muted">
+                                <span>3</span>
+                            </span>
+                            <div class="label text-muted">Personal Details</div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Step Wise Form Content -->
+                <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data">
+                    <!-- Step 1 Content -->
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <section id="step-1" class="form-step">
+                        <h2 class="font-normal">Account Details</h2>
+                        <!-- Step 1 input fields -->
+                        <div class="mt-3">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <label asp-for="Name">Name</label>
+                                    @Html.TextBoxFor(model =>model.Name , new { @id = "name" , @class="required"})
+                                </div>
+                                <div class="form-input">
+                                    <label asp-for="Email" >Email</label>
+                                    @Html.TextBoxFor(model =>model.Email , new { @id = "email" , @class="required"})
+                                </div>
+                                <div class="form-input">
+                                    <label asp-for="MobileNo" class="required">Mobile number</label>
+                                    @Html.TextBoxFor(model =>model.MobileNo , new { @id = "phone_number" , @class="required"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button class="button btn-navigate-form-step" onclick="firstNext()" type="button" step_number="2">Next</button>
+                        </div>
+                    </section>
+                    <!-- Step 2 Content, default hidden on page load. -->
+                    <section id="step-2" class="form-step d-none">
+                        <h2 class="font-normal">Academic Details</h2>
+                        <!-- Step 2 input fields -->
+                        <div class="mt-3">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <label asp-for="StudentId">Student Id</label>
+                                    @Html.TextBoxFor(model =>model.StudentId , new { @id = "student_id" , @class="required"})
+                                </div>
+                                <div class="form-input">
+                                    <div class="label-flex">
+                                        <label asp-for="Department">Department</label>
+                                    </div>
+                                    <div style="padding-right:5px">
+                                        @Html.DropDownListFor( model =>model.Department,
+                                        new SelectList(ViewBag.Departments,"DepartmentShortName","DepartmentShortName"), new { @class = "select-list" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                <div class="label-flex">
+                                    <label asp-for="Semester">Semester</label>
+                                </div>
+                                <div>
+                                    @Html.DropDownListFor( model =>model.Semester,
+                                    new SelectList(ViewBag.Semesters,"SemesterShortForm","SemesterFullForm"), new { @class = "select-list" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button class="button btn-navigate-form-step" type="button" onclick="secondPrev()" step_number="1">Prev</button>
+                            <button class="button btn-navigate-form-step" type="button" onclick="secondNext()" step_number="3">Next</button>
+                        </div>
+                    </section>
+                    <!-- Step 3 Content, default hidden on page load. -->
+                    <section id="step-3" class="form-step d-none">
+                        <h2 class="font-normal">Personal Details</h2>
+                        <!-- Step 3 input fields -->
+                        <div class="mt-3">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <label asp-for="BirthDate" class="required">Birth Date</label>
+                                    <input asp-for="BirthDate" type="Date" name="BirthDate" id="birth-date" required="" />
+                                </div>
+                                <div class="form-input">
+                                    <div class="label-flex">
+                                        <label asp-for="BloodGroup">Blood Group</label>
+                                    </div>
+                                    <div>
+                                        @Html.DropDownListFor( model =>model.BloodGroup,
+                                        new List<SelectListItem>{
+                                        new SelectListItem() { Text ="A+", Value="A+"},
+                                        new SelectListItem() { Text ="A-", Value="A-"},
+                                        new SelectListItem() { Text ="B+", Value="B+"},
+                                        new SelectListItem() { Text ="B-", Value="B-"},
+                                        new SelectListItem() { Text ="O+", Value="O+"},
+                                        new SelectListItem() { Text ="O-", Value="O-"},
+                                        new SelectListItem() { Text ="AB+", Value="AB+"},
+                                        new SelectListItem() { Text ="AB-", Value="AB-"}
+                                        }, new { @class = "select-list" })
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <div class="label-flex">
+                                        <label for="interests">Interests</label>
+                                    </div>
+                                    <div class="checkbox-class" id="interests">
+                                       
+                                        <label for="Interests_IsCompetitiveProgramming" class="checkbox-class-label">
+                                            @Html.CheckBoxFor(model => model.Interests.IsCompetitiveProgramming)
+                                            Competitive Programming
+                                        </label>
+                                        <label for="Interests_IsSoftwareDevelopment" class="checkbox-class-label">
+                                            @Html.CheckBoxFor(model => model.Interests.IsSoftwareDevelopment)
+                                            Software Development
+                                        </label>
+                                        <label for="Interests_IsWebDevelopment" class="checkbox-class-label">
+                                            @Html.CheckBoxFor(model => model.Interests.IsWebDevelopment)
+                                            Web Development
+                                        </label>
+                                        <label for="Interests_IsMobileAppDevelopment" class="checkbox-class-label">
+                                            @Html.CheckBoxFor(model => model.Interests.IsMobileAppDevelopment)
+                                            Mobile App Development
+                                        </label>
+                                        <label for="Interests_IsGraphicsDesign" class="checkbox-class-label">
+                                            @Html.CheckBoxFor(model => model.Interests.IsGraphicsDesign)
+                                            Graphics Design
+                                        </label>
+                                        <label for="Interests_IsPhotography" class="checkbox-class-label">
+                                            @Html.CheckBoxFor(model => model.Interests.IsPhotography)
+                                            Photography
+                                        </label>
+                                        <label for="Interests_IsRobotics" class="checkbox-class-label">
+                                            @Html.CheckBoxFor(model => model.Interests.IsRobotics)
+                                            Robotics
+                                        </label>
+                                        <label for="Interests_IsCompetitiveProgramming" class="checkbox-class-label">
+                                            @Html.CheckBoxFor(model => model.Interests.IsArtificialIntelligence)
+                                            Artificial Intelligence
+                                        </label>
+                                        <label for="Interests_IsEventManagement" class="checkbox-class-label">
+                                            @Html.CheckBoxFor(model => model.Interests.IsEventManagement)
+                                            Event Management
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-input">
+                                    <label asp-for="Picture" class="required">Picture</label>
+                                    <input asp-for="Picture" type="file" name="Picture" id="picture" accept=".jpg,.jpeg,.png" onchange="validateFileType()" required="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button class="button btn-navigate-form-step" onclick="thirdPrev()" type="button" step_number="2">Prev</button>
+                            <button class="button submit-btn" onclick="finalSubmit()" type="button">Submit</button>
+                            </br>
+                            @Html.AntiForgeryToken()
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+</section><!-- End Values Section -->
+<button style="display:none;" id="bKash_button"></button>
+@section Scripts
+    {
+    <script>
+        var ClubWebsiteUrls = {
+            CHECK_NEW_MEMBER_INFO: '@Url.Action("CheckMemberInformationNew", "Join")',
+            MERCHANT_BACKEND_CREATE_API_CALLER_URL: '@Url.Action("CreatePaymentInit", "Payment")',
+            MERCHANT_BACKEND_EXECUTE_API_CALLER_URL: '@Url.Action("ExecutePaymentInit", "Payment")',
+            INSERT_NEW_MEMBER_INFO : '@Url.Action("InsertNewMember","Join")',
+            SUCCESSFUL_PAYMENT: '@Url.Action("Success", "Payment")',
+            PAYMENT_PAGE: '@Url.Action("Index", "Payment")'
+        };
+    </script>
+    <script src="~/bundles/join-js-bundle.min.js"></script>
+    <script>
+        document.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+        }, false);
+    </script>
+}

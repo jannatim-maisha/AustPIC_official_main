@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Join AUSTPIC</title>
+        <meta content="Join the Rapidly Growing Club of AUST | AUSTPIC" name="description">
+        <meta content="join,austpic,aust" name="keywords">
+
+        <!-- Favicons -->
+        <link href="~/img/common/club_logo_small.png" rel="icon">
+        <link href="~/img/common/club_logo_medium.png" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="~/lib/aos/aos.css" rel="stylesheet">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="~/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+        <link href="~/lib/glightbox/css/glightbox.min.css" rel="stylesheet">
+        <link href="~/lib/remixicon/remixicon.css" rel="stylesheet">
+        <link href="~/lib/swiper/swiper-bundle.min.css" rel="stylesheet">
+        <link href="~/bundles/join-css-bundle.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <header id="header" class="header fixed-top">
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+                <a href="/" class="logo d-flex align-items-center">
+                    <img src="~/img/common/club_logo_large.png" alt="">
+                    <span>AUSTPIC</span>
+                </a>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <!-- <li><a class="getstarted scrollto" asp-action="Login">Log In</a></li> -->
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+
+            </div>
+        </header><!-- End Header -->
+        <main role="main">
+            @RenderBody()
+        </main>
+        <footer id="footer" class="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row gy-4">
+                        <div class="col-lg-5 col-md-12 footer-info">
+                            <a href='@Url.Action("Index", "Join")' class="logo d-flex align-items-center">
+                                <img src="~/img/common/club_logo_large.png" alt="">
+                                <span>AUSTPIC</span>
+                            </a>
+                            <p>AUST Programming and Informatics Club, widely known as "AUSTPIC", is established in Ahsanullah University of Science & Technology (AUST), Dhaka, in Spring 2021. This club focuses on developing students' skills in Programming.</p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                                <a href="https://facebook.com/AUSTPIC" class="facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/aust_programming_club" class="instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-6 footer-links">
+                        </div>
+
+                        <div class="col-lg-2 col-6 footer-links">
+                        </div>
+
+                        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                            <h4>Contact Us</h4>
+                            <p>
+                                141 & 142, Love Road,<br />Tejgaon Industrial Area, Dhaka 1208,<br /> Dhaka Division, Bangladesh.
+                                <br><br>
+                                <strong>Email:</strong> austpic@aust.edu<br>
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="copyright">
+                    <div>
+                        <strong>Server Sponsor: </strong>
+                    <a href="https://www.gotmyhost.com/" target="_blank" rel="noreferrer" style="text-decoration: none; color: rgb(214, 121, 121);"><img src="~/img/common/sponsorLogo.svg" alt="GOTMYHOST" width="180"></a>
+                    </div>
+                &copy; Copyright <strong><span><a href="https://austpic.com/" target="_blank" rel="noreferrer">AUST Programming and Informatics Club</a></span></strong>. All Rights Reserved
+                </div>
+            </div>
+        </footer><!-- End Footer -->
+
+     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://scripts.sandbox.bka.sh/versions/1.2.0-beta/checkout/bKash-checkout-sandbox.js"></script>
+    <script src="~/lib/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/lib/aos/aos.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/glightbox/js/glightbox.min.js"></script>
+    <script src="~/lib/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/lib/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/6.0.0/bootbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/javascript-obfuscator/dist/index.browser.js"></script>
+    @RenderSection("scripts",required:false)
+    </body>
+</html>

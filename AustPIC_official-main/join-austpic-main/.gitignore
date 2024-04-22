@@ -1,0 +1,7 @@
+#ignore the images file
+./img
+*.dll
+.vs/
+
+WebApplication1/bin/
+WebApplication1/obj/

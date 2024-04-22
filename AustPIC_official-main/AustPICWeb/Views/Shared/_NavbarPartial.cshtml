@@ -1,0 +1,44 @@
+﻿
+@*<style>
+    #navbar {
+    }
+</style>*@
+
+
+<div class="container d-flex align-items-center">
+
+    <h1 class="logo me-auto"><a>AUSTPIC</a></h1>
+    <!-- <a href="index.html" class="logo me-auto"><img src="img/logo.png" alt="" class="img-fluid"></a>-->
+
+    <nav id="navbar" class="navbar">
+        <ul>
+            <li><a class="nav-link scrollto active" asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="dropdown">
+                <a href="#"><span>Club Committee</span> <i class="bi bi-chevron-down"></i></a>
+                @await Component.InvokeAsync("CommitteeSemester")
+            </li>
+            <li class="dropdown">
+                @*<a href="#" onclick="loadNavBarView('News/Index')"><span>News</span> <i class="bi bi-chevron-down"></i></a>*@
+                <a href="#"><span>News</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <li><a asp-controller="News" asp-action="Index">Notice</a></li>
+                    <li><a asp-controller="Contest" asp-action="Index">Contests</a></li>
+                </ul>
+            </li>
+            <li><a class="nav-link scrollto" asp-controller="Event" asp-action="Index">Events</a></li>
+            <li><a class="nav-link scrollto" asp-controller="Workshop" asp-action="Index">Workshops</a></li>
+            <li><a class="nav-link scrollto" asp-controller="Blog" asp-action="Index">Blog</a></li>
+            <li><a class="nav-link scrollto" asp-controller="Gallery" asp-action="Index">Gallery</a></li>
+            <li><a class="nav-link scrollto" asp-controller="About" asp-action="Index">About Us</a></li>
+            <li><a class="nav-link scrollto" asp-controller="Contact" asp-action="Index">Contact</a></li>
+            <partial name="_LoginPartial" />
+            @if (User.IsInRole("Administrator"))
+            {
+                <li><a class="getstarted scrollto" asp-controller="Admin" asp-action="Index">Admin Panel</a></li>
+            }
+            @*<li><a class="getstarted scrollto" asp-controller="Home" asp-action="Login">Login/Signup</a></li>*@
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+</div>

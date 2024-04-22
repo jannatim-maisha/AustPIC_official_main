@@ -1,0 +1,61 @@
+[
+  {
+    "outputFileName": "wwwroot/bundles/join-js-bundle.js",
+    "inputFiles": [
+      "wwwroot/js/join/formjs.js",
+      "wwwroot/js/join/main.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/bundles/payment-js-bundle.js",
+    "inputFiles": [
+      "wwwroot/js/payment/payment12321.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/bundles/join-css-bundle.css",
+    "inputFiles": [
+      "wwwroot/css/join/formstyle.css",
+      "wwwroot/css/join/style.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/bundles/payment-css-bundle.css",
+    "inputFiles": [
+      "wwwroot/css/payment/payment-style.css",
+      "wwwroot/css/join/style.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/bundles/error-css-bundle.css",
+    "inputFiles": [
+      "wwwroot/css/join/errorstyle.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+
+]

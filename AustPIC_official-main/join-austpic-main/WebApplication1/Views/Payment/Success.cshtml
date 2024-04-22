@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Success";
+    Layout = "~/Views/Shared/_PaymentLayout.cshtml";
+}
+<p>Your Payment is Successful</p>
+
+@section Scripts
+{
+    <script>
+        var success = '@Url.Action("Index", "Join")';
+    </script>
+    <script>
+        $(document).ready(function () {
+            bootbox.alert({
+                title: "Successful",
+                message: "Congratulations!Your payment is successful",
+                callback: function () {
+                    window.location.href = success;
+                }
+            });
+        });
+    </script>
+}

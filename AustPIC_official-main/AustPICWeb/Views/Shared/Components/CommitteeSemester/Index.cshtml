@@ -1,0 +1,8 @@
+﻿@model IEnumerable<String>
+
+<ul>  
+    @foreach (var item in Model)
+    {
+        <li><a asp-controller="Committee" asp-action="Index" asp-route-id=@item>@item</a></li>
+    }  
+</ul> 

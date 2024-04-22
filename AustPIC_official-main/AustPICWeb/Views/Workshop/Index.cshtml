@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AustPIC.Models.EventModel>
+
+@{
+    ViewData["Title"] = "Workshops";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li>Workshops</li>
+        </ol>
+        <h2>Workshops</h2>
+    </div>
+</section>
+
+<section class="inner-page">
+    <div class="container" data-aos="fade-up">
+        @foreach (var item in Model)
+        {
+            <a asp-action="Details" asp-route-id="@item.EventId" class="text-dark">
+                <div class="card mb-5" style="" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src=@item.EventImg class="img-fluid rounded-start" style="height: 100%; object-fit: contain; max-width: 100%;" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.EventTitle</h5>
+                                <p class="card-text">
+                                    @item.EventDesc
+                                </p>
+                                <p class="card-text"><small class="text-muted"><i class="fa-regular fa-clock pe-1"></i>@item.EventStart - @item.EventEnd</small></p>
+                                <p class="card-text">
+                                    @if (DateTime.Now <= item.EventStart)
+                                    {
+                                        <small class="rounded bg-success text-light p-1">Upcoming</small>
+                                    }
+                                    else if (DateTime.Now >= item.EventStart && DateTime.Now <= item.EventEnd)
+                                    {
+                                        <small class="rounded bg-info text-light p-1">Ongoing</small>
+                                    }
+                                    else
+                                    {
+                                        <small class="rounded bg-secondary text-light p-1">Ended</small>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</section>
+
+

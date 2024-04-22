@@ -1,0 +1,168 @@
+﻿@using AustPIC.Models.ViewModels
+@model BlogViewModel
+
+@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+    //int page = 0;
+}
+
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li>Blogs</li>
+        </ol>
+        <h2>Blogs</h2>
+    </div>
+</section>
+
+<main class="container pt-4" data-aos="fade-up">
+
+    @if (ViewBag.Category != null)
+    {
+        <a class="btn btn-outline-primary rounded-pill mb-4">showing results for "@ViewBag.Category"</a>
+    }
+
+    @if (ViewBag.Date != null)
+    {
+        <a class="btn btn-outline-primary rounded-pill mb-4">showing results for "@ViewBag.Date"</a>
+    }
+
+    @*    <div class="p-4 p-md-5 mb-4 rounded text-bg-dark" data-aos-delay="200">
+    @foreach (var item in Model.blogTop2)
+    {
+    <div class="col-md-12 px-0">
+    <strong class="d-inline-block mb-2 text-info text-bg-light rounded px-2">Most Recent</strong>
+    <h1 class="fst-italic">@item.BlogTitle</h1>
+    <p class="lead my-3">@item.BlogShort</p>
+    <p class="lead mb-0"><a href="#blog" class="text-white fw-bold">Continue reading...</a></p>
+    </div>
+    }
+    </div>*@
+
+    <div id="blog" class="row g-5">
+        <div class="col-xl-10">
+            <div class="row mb-2" data-aos="fade-up" data-aos-delay="200">
+                @foreach (var item in Model.blogList)
+                {
+                    <div class="col-md-12">
+                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div class="col-md-8 p-4 d-flex flex-column position-static">
+                                <strong class="d-inline-block mb-2 text-success">@item.BlogCatergory</strong>
+                                <h3 class="mb-0">@item.BlogTitle</h3>
+                                <div class="mb-1 text-muted">@item.BlogDate</div>
+                                <p class="mb-auto">@item.BlogShort</p>
+                                @*@Html.ActionLink("Continue reading...", "Index", new { id=item.BlogId }, new { @class = "" })*@
+                                @*<a asp-controller="Blog" asp-action="Index" class="stretched-link">Continue reading</a>*@
+                                <a asp-controller="Blog" asp-action="Details" asp-route-id="@item.BlogId" class="stretched-link">Continue reading</a>
+                            </div>
+                            @if (item.BlogImg != null)
+                            {
+                                @*<div class="col-md-4 d-none d-lg-block">
+                                    <img class="rounded-end" src=~/@item.BlogImg />
+                                </div>*@
+@*                                <div class="col-md-4 d-none d-md-block" style="position: relative;">
+                                    <img class="rounded-end" src=~/@item.BlogImg style="height: 100%; object-fit: contain; max-width: 100%;">
+                                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to left, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.6));"></div>
+                                </div>*@
+                                <div class="col-md-4 d-none d-md-block">
+                                    <img class="rounded-end" src=~/@item.BlogImg style="height: 100%; object-fit: contain; max-width: 100%;">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-xl-2">
+            <div class="position-sticky mt-2 pt-5 pb-3" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-light rounded">
+
+                    <a asp-action="CreateBlog" class="px-4 blog-button">Post Blog</a>
+
+                    <div class="pt-4">
+                        <h4 class="fst-italic">Categories</h4>
+                        <ol class="list-unstyled mb-0">
+                            @foreach (var item in Model.category)
+                            {
+                                <li><a asp-controller="Blog" asp-action="Index" asp-route-category="@item">@item</a></li>
+                            }
+                        </ol>
+                    </div>
+
+                    <div class="pt-4">
+                        <h4 class="fst-italic">Archives</h4>
+                        <ol class="list-unstyled">
+                            @foreach (var item in Model.date)
+                            {
+
+                                <li><a asp-controller="Blog" asp-action="Index" asp-route-date="@item">@item</a></li>
+                            }
+                        </ol>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    @*    <div id="blog" class="row g-5" data-aos="fade-up" data-aos-delay="200">
+    <div class="col-md-8">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+    Start Reading
+    </h3>
+    @foreach (var item in Model.blog)
+    {
+    <article class="">
+    <h2 class="mb-1">@item.BlogTitle</h2>
+    <p class="">@item.BlogDate by <a href="#">@item.BlogAuthor</a></p>
+    <p class=""><span class="rounded bg-success py-1 px-2 text-white">@item.BlogCatergory</span><span class="py-1 px-2">@item.BlogView Views</span></p>
+    <p>@item.BlogShort</p>
+    <hr>
+    @Html.Raw(System.Web.HttpUtility.HtmlDecode(item.BlogBody))
+    </article>
+    }
+    <nav class="blog-pagination" aria-label="Pagination">
+    @foreach (var item in Model.blogList)
+    {
+    page++;
+    <a class="btn btn-outline-primary rounded-pill" href="Blog/Details/@item.BlogId">@@page</a>
+    }
+    </nav>
+
+    </div>
+
+    <div class="col-md-4">
+    <div class="position-sticky mt-2 pt-5" style="top: 2rem;">
+    <div class="p-4 mb-3 bg-light rounded">
+    <h4 class="fst-italic">About</h4>
+    <p class="mb-0"></p>
+    </div>
+
+    <div class="p-4">
+    <h4 class="fst-italic">Archives</h4>
+    <ol class="list-unstyled mb-0">
+    <li><a href="#">March 2023</a></li>
+    <li><a href="#">February 2023</a></li>
+    <li><a href="#">January 2023</a></li>
+    <li><a href="#">December 2022</a></li>
+    <li><a href="#">November 2022</a></li>
+    </ol>
+    </div>
+
+    <div class="p-4">
+    <h4 class="fst-italic">Categories</h4>
+    <ol class="list-unstyled">
+    <li><a href="#">MySQL</a></li>
+    <li><a href="#">Problem Solving</a></li>
+    <li><a href="#">Python</a></li>
+    </ol>
+    </div>
+    </div>
+    </div>
+    </div>*@
+
+</main>

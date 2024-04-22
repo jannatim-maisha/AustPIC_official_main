@@ -1,0 +1,84 @@
+﻿@model AustPIC.Models.ContactModel
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Contact Us";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<section id="contact" class="contact mt-5">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Contact</h2>
+            @*<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>*@
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-5 d-flex align-items-stretch">
+                <div class="info">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Location:</h4>
+                        <p>141 & 142, Love Road, Tejgaon Industrial Area, Dhaka-1208.</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>info@aust.edu</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h4>Call:</h4>
+                        <p>(8802) 8870422</p>
+                    </div>
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.538620356932!2d90.4044851153449!3d23.763826894179388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c77decb5f845%3A0xc2eadd2f3b867792!2sAhsanullah%20University%20of%20Science%20and%20Technology!5e0!3m2!1sen!2sbd!4v1675172548667!5m2!1sen!2sbd" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+                    @*<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>*@
+                </div>
+
+            </div>
+
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                @*<form action="forms/contact.php" method="post" role="form" class="php-email-form">*@
+                <form class="php-email-form" method="post" asp-controller="Contact" asp-action="Index" enctype="multipart/form-data">
+                    @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="ContactName" class="control-label"></label>
+                            <input asp-for="ContactName" class="form-control" />
+                            @*<span asp-validation-for="ContactName" class="text-danger"></span>*@
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="ContactEmail" class="control-label"></label>
+                            <input asp-for="ContactEmail" class="form-control" value=""/>
+                            @*<span asp-validation-for="ContactEmail" class="text-danger"></span>*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ContactSubject" class="control-label"></label>
+                        <input asp-for="ContactSubject" class="form-control" />
+                        @*<span asp-validation-for="ContactSubject" class="text-danger"></span>*@
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ContactMessage" class="control-label"></label>
+                        <textarea asp-for="ContactMessage" class="form-control" rows="10"></textarea>
+                        @*<span asp-validation-for="ContactMessage" class="text-danger"></span>*@
+                    </div>
+@*                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>*@
+                    @*<input type="submit" value="Create" class="btn btn-primary text-center" />*@
+                    <div class="text-center"><button type="submit">Send Message</button></div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->

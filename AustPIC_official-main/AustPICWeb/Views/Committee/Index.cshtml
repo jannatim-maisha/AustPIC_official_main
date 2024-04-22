@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AustPIC.Models.CommitteeModel>
+@{
+    ViewData["Title"] = "Club Committee";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<!-- ======= Team Section ======= -->
+<section id="team" class="team section-bg mt-5">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Club Committee</h2>
+            <p>@ViewBag.Semester</p>
+        </div>
+
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-6 mt-4">
+                    <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="pic"><img src=~/@item.CommitteeImg class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>@item.CommitteeName</h4>
+                            <span>@item.CommitteePosition</span>
+                            @if (item.CommitteeYear != 0 && item.CommitteeSemester != 0)
+                            {
+                                <p>@item.CommitteeYear.@item.CommitteeSemester</p>
+                            }
+                            <p>Department of @item.CommitteeDetails</p>
+                            <p>@item.CommitteeEmail</p>
+                            <div class="social">
+                                <a href="@item.CommitteeEmail"><i class="ri-twitter-fill"></i></a>
+                                <a href="@item.CommitteeFacebook"><i class="ri-facebook-fill"></i></a>
+                                <a href=""><i class="ri-instagram-fill"></i></a>
+                                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</section><!-- End Team Section -->

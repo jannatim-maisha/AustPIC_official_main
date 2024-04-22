@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AustPIC.Models.ContestModel>
+
+@{
+    ViewData["Title"] = "Contests";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li>News</li>
+        </ol>
+        <h2>Contests</h2>
+    </div>
+</section>
+
+<section class="inner-page">
+    <div class="container" data-aos="fade-up">
+        @foreach (var item in Model)
+        {
+            <div class="card mb-5" style="">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src=@item.ContestImg class="img-fluid rounded-start" style="height: 100%; object-fit: contain; max-width: 100%;" alt="...">
+                        @*<img src=@item.ContestImg class="img-fluid rounded-start" alt="...">*@
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                @item.ContestTitle
+                                @if (DateTime.Now <= item.ContestStart)
+                                {
+                                    <span class="float-end rounded bg-success text-light fs-6 px-1 py-1">Upcoming</span>
+                                }
+                                else if (DateTime.Now >= item.ContestStart && DateTime.Now <= item.ContestEnd)
+                                {
+                                    <span class="float-end rounded bg-info text-light fs-6 px-1 py-1">Ongoing</span>
+                                }
+                                else
+                                {
+                                    <span class="float-end rounded bg-secondary text-light fs-6 px-1 py-1">Ended</span>
+                                }
+                                
+                            </h5>
+                            <p class="card-text">
+                                @*For the upcoming CodeCombat 1.0,We are arranging a long contest starting from tomorrow 10.45 P.M to 15 February.<br>
+                            <a href="https://vjudge.net/contest/542279">https://vjudge.net/contest/542279</a><br>
+                            password: practiceCodeCombat<br>
+                            Reminder! The registration deadline for CodeCombat is approaching !!<br>
+                            Register  : <a href="codecombat.austpic.com">codecombat.austpic.com</a>*@
+                                @Html.Raw(System.Web.HttpUtility.HtmlDecode(item.ContestDesc))
+                            <p class="card-text"><small class="text-muted"><i class="fa-regular fa-clock pe-1"></i>@item.ContestStart - @item.ContestEnd</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

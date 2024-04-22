@@ -1,0 +1,53 @@
+﻿@model AustPIC.Models.EventModel
+
+@{
+    ViewData["Title"] = "EditEvent";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main class="p-5 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<h1>EditEvent</h1>
+
+<h4>EventModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditEvent">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @Html.HiddenFor(Model => Model.EventId)
+            <div class="form-group">
+                <label asp-for="EventTitle" class="control-label"></label>
+                <input asp-for="EventTitle" class="form-control" />
+                <span asp-validation-for="EventTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDesc" class="control-label"></label>
+                <input asp-for="EventDesc" class="form-control" />
+                <span asp-validation-for="EventDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventImg" class="control-label"></label>
+                <input asp-for="EventImg" class="form-control" />
+                <span asp-validation-for="EventImg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventStart" class="control-label"></label>
+                <input asp-for="EventStart" class="form-control" />
+                <span asp-validation-for="EventStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventEnd" class="control-label"></label>
+                <input asp-for="EventEnd" class="form-control" />
+                <span asp-validation-for="EventEnd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+        <a asp-action="GetAllEvent">Back to List</a>
+</div>
+</main>
+

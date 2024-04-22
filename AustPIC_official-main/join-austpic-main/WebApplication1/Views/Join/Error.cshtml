@@ -1,0 +1,23 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+	Layout = "~/Views/Shared/_JoinLayout.cshtml";
+}
+<head>
+	<link href="~/img/common/club_logo_small.png" rel="icon">
+	<link href="~/img/common/club_logo_medium.png" rel="apple-touch-icon">
+	<link href="~/bundles/error-css-bundle.min.css" rel="stylesheet">
+</head>
+<body>
+	<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<div></div>
+				<h1>404</h1>
+			</div>
+			<h2>Page not found</h2>
+			<p>The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
+			<a href='@Url.Action("Index", "Join")'>Home Page</a>
+		</div>
+	</div>
+</body>

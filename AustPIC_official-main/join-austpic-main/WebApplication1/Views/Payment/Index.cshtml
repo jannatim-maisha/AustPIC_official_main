@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Payment";
+    Layout = "~/Views/Shared/_PaymentLayout.cshtml";
+}
+<header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <a href="join" class="logo d-flex align-items-center">
+            <img src="~/img/common/club_logo_large.png" alt="">
+            <span>AUSTPIC</span>
+        </a>
+    </div>
+</header>
+<br>
+<br>
+<div style="background-color: #e6ebf4 !important;">
+
+    <div class="payment container mt-5 mb-5 d-flex justify-content-center">
+        <div class="card p-5"> 
+            <div>
+                    <h4 class="heading" style="align-content:center;">Payment Procedure</h4>
+                </div> 
+            <div class="pricing p-3 rounded mt-4 d-flex justify-content-between"> 
+                <div class="images d-flex flex-row align-items-center"> 
+                    <div class="d-flex flex-column ml-4"> 
+                        <span class="business">Permanent</span>
+                            <span class="business">Membership</span>
+                        </div> 
+                </div> <!--pricing table--> 
+                <div class="d-flex flex-row align-items-center"> 
+                    <sup class="dollar font-weight-bold">BDT</sup> 
+                    <span class="amount ml-1 mr-1">@ViewBag.Fee</span>
+
+                </div> <!-- /pricing table--> 
+            </div> 
+            <span class="detail mt-5">Your Details</span> 
+            <div class="mt-2 d-flex justify-content-between align-items-center"> 
+                <div class="d-flex flex-row align-items-center textlabel"> 
+                    <p>Name:</p>
+                </div>
+                    <div class="mt-2">
+                    <input type="text" value=@(String.IsNullOrEmpty(ViewBag.Name) ? "Not Found" : ViewBag.Name) class="form-control textbox" readonly>
+                    </div> 
+            </div> 
+            <div class="mt-2 d-flex justify-content-between align-items-center">
+                    <div class="d-flex flex-row align-items-center textlabel">
+                    <p>Email:</p>
+                </div>
+                <div>
+                    <input type="text" value=@(String.IsNullOrEmpty(ViewBag.Email) ? "" : ViewBag.Email) class="form-control textbox" readonly>
+                </div>
+            </div>
+            <div class="mt-2 d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-row align-items-center textlabel">
+                    <p>Mobile No:</p>
+                </div>
+                <div>
+                    <input type="text" value=@(String.IsNullOrEmpty(ViewBag.MobileNo) ? "" : ViewBag.MobileNo) class="form-control textbox" readonly>
+                </div>
+            </div>
+            <span class="detail mt-5">Select Payment Method</span>
+            <div class="mt-3">
+                <button onclick="clickPayButton()" style="box-shadow: 0 0 35px 0 rgb(154 161 171);">
+                    <img class="bkash-image" src="~/img/payment/bkash.svg" alt="Bkash">
+                    @Html.AntiForgeryToken()
+                </button>
+            </div> 
+        </div> 
+    </div>
+</div>
+<button style="display:none;" id="bKash_button"></button>
+@section Scripts
+{
+<script>
+    var ClubWebsiteUrls = {
+        CHECK_NEW_MEMBER_INFO: '@Url.Action("CheckMemberInformationNew", "Join")',
+        MERCHANT_BACKEND_CREATE_API_CALLER_URL: '@Url.Action("CreatePaymentInit", "Payment")',
+        MERCHANT_BACKEND_EXECUTE_API_CALLER_URL: '@Url.Action("ExecutePaymentInit", "Payment")',
+        SUCCESSFUL_PAYMENT: '@Url.Action("Success", "Join")'
+    };
+    var PAYMENT_FEE = '@ViewBag.Fee';
+</script>
+<script src="~/bundles/payment-js-bundle.min.js" ></script>
+<script>
+    document.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+    }, false);
+</script>
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dcd5e4831c51463a852831d872e1d9a1" Name="Diagram1">
+        <EntityTypeShape EntityType="AustPICModel.Gallery" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AustPICModel.Member" Width="1.5" PointX="3.75" PointY="3.75" />
+        <EntityTypeShape EntityType="AustPICModel.Contact" Width="1.5" PointX="6.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AustPICModel.Committee" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AustPICModel.Blog" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="AustPICModel.Contest" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="AustPICModel.Event" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="AustPICModel.CssVariables" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="AustPICModel.CssVariables1" Width="1.5" PointX="3.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

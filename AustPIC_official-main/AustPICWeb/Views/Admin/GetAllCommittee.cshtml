@@ -1,0 +1,94 @@
+﻿@using AustPIC.Models
+@model IEnumerable<AustPIC.Models.CommitteeModel>
+
+@{
+    ViewData["Title"] = "GetAllCommittee";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main class="p-5 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <h1>Committee List</h1>
+    <hr />
+    <p>
+        <a asp-action="AddCommittee" class="btn btn-primary">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommitteeId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommitteeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommitteePosition)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommitteeStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommitteeImg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommitteeDetails)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommitteeYear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommitteeSemester)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommitteeFacebook)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommitteeEmail)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommitteeId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommitteeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommitteePosition)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommitteeStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommitteeImg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommitteeDetails)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommitteeYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommitteeSemester)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommitteeFacebook)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommitteeEmail)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditCommittee", new { id=item.CommitteeId }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Details", "CommitteeDetails", new { id=item.CommitteeId }, new { @class = "btn btn-secondary" })
+                        @Html.ActionLink("Delete", "DeleteCommittee", new { id=item.CommitteeId }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</main>

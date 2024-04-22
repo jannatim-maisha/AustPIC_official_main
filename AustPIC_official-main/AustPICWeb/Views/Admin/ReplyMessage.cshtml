@@ -1,0 +1,235 @@
+﻿@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Dashboard Template · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">AUSTPIC</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <a asp-controller="Home" asp-action="Index" class="nav-link px-3">Back To Site</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3 sidebar-sticky">
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a asp-controller="Admin" asp-action="Index" class="nav-link active" aria-current="page">
+                                <span data-feather="home" class="align-text-bottom"></span>
+                                Dashboard
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                        <span>Manage User</span>
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle" class="align-text-bottom"></span>
+                        </a>
+                    </h6>
+
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text" class="align-text-bottom"></span>
+                                User List
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                        <span>Manage Committee</span>
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle" class="align-text-bottom"></span>
+                        </a>
+                    </h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a asp-controller="Admin" asp-action="GetAllCommittee" class="nav-link">
+                                <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                                Committee List
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                        <span>Manage News</span>
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle" class="align-text-bottom"></span>
+                        </a>
+                    </h6>
+
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text" class="align-text-bottom"></span>
+                                Notice
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text" class="align-text-bottom"></span>
+                                Contest
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                        <span>Manage Events</span>
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle" class="align-text-bottom"></span>
+                        </a>
+                    </h6>
+
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a asp-controller="Admin" asp-action="GetAllEvent" class="nav-link">
+                                <span data-feather="file-text" class="align-text-bottom"></span>
+                                Events List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Admin" asp-action="GetAllEvent" class="nav-link">
+                                <span data-feather="file-text" class="align-text-bottom"></span>
+                                Event Registrations
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                        <span>Manage Workshop</span>
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle" class="align-text-bottom"></span>
+                        </a>
+                    </h6>
+
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text" class="align-text-bottom"></span>
+                                Workshop List
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                        <span>Manage Gallery</span>
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle" class="align-text-bottom"></span>
+                        </a>
+                    </h6>
+
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="file-text" class="align-text-bottom"></span>
+                                Image List
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
+                        <span>Inbox</span>
+                        <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle" class="align-text-bottom"></span>
+                        </a>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a asp-controller="Admin" asp-action="GetAllContact" class="nav-link">
+                                <span data-feather="file-text" class="align-text-bottom"></span>
+                                Messages
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+
+            <main class="p-5 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <h1>Reply To Message</h1>
+                <hr />
+                <form class="mb-4" method="post" asp-controller="Admin" asp-action="ReplyMessage" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" readonly class="form-control" id="exampleInputEmail1" name="Email" aria-describedby="emailHelp" value=@ViewBag.Email>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="Subject" name="Subject">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Body" class="form-label">Body</label>
+                        <textarea class="form-control" id="Body" cols="20" rows="10" name="Body"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <br />
+                    <span style="color:green">@ViewBag.Message</span>
+
+                    @*<table class="table" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                    <td>Subject:</td>
+                    <td><input type="text" name="Subject" /></td>
+                    </tr>
+                    <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="Email" value=@ViewBag.Email disabled></td>
+                    </tr>
+                    <tr>
+                    <td valign="top">Body:</td>
+                    <td><textarea cols="20" rows="10" name="Body"></textarea></td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    <td><input type="submit" value="Send" /></td>
+                    </tr>
+                    </table>
+                    <br />
+                    <span style="color:green">@ViewBag.Message</span>*@
+                </form>
+                <a asp-action="GetAllContact">Back to List</a>
+            </main>
+
+
+        </div>
+    </div>
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
+

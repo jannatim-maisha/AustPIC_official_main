@@ -1,0 +1,91 @@
+﻿@model AustPIC.Models.BlogModel
+
+@{
+    ViewData["Title"] = "Blog";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<style>
+    #editor-container {
+        width: 100%;
+        height: 70vh;
+    }
+
+    @@media (max-width: 768px) {
+        #editor-container {
+            height: 50vh;
+        }
+    }
+</style>
+
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <ol>
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-action="Index">Blogs</a></li>
+            <li>Create Blog</li>
+        </ol>
+        <h2>Create Blog</h2>
+    </div>
+</section>
+
+<div class="container mt-5 mb-5" data-aos="fade-up">
+
+    <form method="post" enctype="multipart/form-data" data-ajax="true"
+          data-ajax-complete="onComplete" data-ajax-success="onSuccess" data-ajax-failure="onFailure"
+          data-ajax-loading="#spinner" data-ajax-url="@Url.Action("CreateBlog", "Blog")">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="BlogTitle" class="control-label pb-2"></label>
+            <input asp-for="BlogTitle" id="title" class="form-control" />
+            <span asp-validation-for="BlogTitle" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <label asp-for="BlogAuthor" class="control-label pb-2"></label>
+            <input asp-for="BlogAuthor" id="author" class="form-control" />
+            <span asp-validation-for="BlogAuthor" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <label asp-for="BlogCatergory" class="control-label pb-2"></label>
+            <input asp-for="BlogCatergory" id="catergory" class="form-control" />
+            <span asp-validation-for="BlogCatergory" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <label asp-for="BlogShort" class="control-label pb-2"></label>
+            <input asp-for="BlogShort" id="short" class="form-control" />
+            <span asp-validation-for="BlogShort" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <label asp-for="BlogImgFile" class="form-label"></label>
+            <input asp-for="BlogImgFile" accept=".jpg,.jpeg,.png" class="form-control" id="img">
+            <span asp-validation-for="BlogImgFile" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group" style="display: none;">
+            <label asp-for="BlogClass" class="control-label pb-2"></label>
+            <input asp-for="BlogClass" id="sclass" class="form-control" />
+            <span asp-validation-for="BlogClass" class="text-danger"></span>
+        </div>
+
+        <label asp-for="BlogBody" class="control-label pb-3"></label>
+        <input asp-for="BlogBody" type="hidden" id="unlayer-html" value="" />
+
+        <div id="editor-container"></div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" id="create-button" class="blog-button mt-5">Create Blog</button>
+        </div>
+
+    </form>
+
+    <div class="d-flex justify-content-center my-4">
+        <div class="spinner-border" role="status" id="spinner" style="display: none;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+

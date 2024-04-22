@@ -1,0 +1,63 @@
+﻿@*@model AustPIC.Models.ContactModel
+
+@{
+    ViewData["Title"] = "ContactDetails";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<main class="p-5 col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <h1>ContactDetails</h1>
+
+    <div>
+        <h4>ContactModel</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactEmail)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactEmail)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactSubject)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactSubject)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactMessage)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactMessage)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactTime)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactTime)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ContactReplied)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ContactReplied)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        @Html.ActionLink("Reply", "ContactReply", new { /* id = Model.PrimaryKey */ }) |
+        <a asp-action="GetAllContact">Back to List</a>
+    </div>
+</main>
+*@
